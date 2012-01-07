@@ -1,11 +1,11 @@
 require 'rubygems'
-
 require 'bundler/setup'
-require 'models'
-
-
 
 require 'sinatra'
+require 'haml'
+
+require 'models'
+
 helpers do
   def repo
     @repo ||= Repo.where(name: params[:name]).first or halt 404
@@ -27,8 +27,8 @@ get '/:name' do
 end
 
 post '/:name/push' do
-  repo.pull(origin)
-  repo.pull(params[:file])
-  repo.push(origin)
+  repo.pull(params[:update][:tempfile].path)
+  repo.push
+  
   redirect "/#{repo.name}"
 end
