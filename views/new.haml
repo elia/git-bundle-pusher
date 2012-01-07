@@ -1,0 +1,14 @@
+%ul
+  - Repo.all.each do |repo|
+    %li
+      %a(href="/#{repo.name}")= repo.name
+
+%form(action="/" method='post')
+  .field
+    %label(for='repo[name]') Name
+    %input(type='text' name='repo[name]')
+  .field
+    %label(for='repo[origin]') Origin
+    %input(type='text' name='repo[origin]')
+  
+  %input(type='submit')

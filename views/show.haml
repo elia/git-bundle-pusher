@@ -1,0 +1,7 @@
+%h3 Upload your git bundle
+
+%form(action="/#{repo.name}/push" method='post' enctype='multipart/form-data')
+  .field
+    %input(type='file' name='update')
+  
+  %input(type='submit')
