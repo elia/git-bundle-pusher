@@ -17,7 +17,6 @@ class Repo
     git.pull
     logger.info '===' * 40
     git.lib.send(:command,'pull', [source, 'master'])
-    # git.pull(source, 'master')
   end
   
   def push
